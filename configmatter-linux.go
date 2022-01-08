@@ -237,8 +237,8 @@ func main() {
 		color.Green("\n✓ Extracted Configuration:\n")
 
 		fmt.Fprintln(w1, "\n→ Ransomware Version: \t", mwVersion)
-		fmt.Fprintln(w1, "→ RSA Public Key: \t", configEnc.RSA_Key[0:64]+"...")
-		fmt.Fprintln(w1, "→ Self-Remove: \t", configEnc.Self_Delete)
+		fmt.Fprintln(w1, "→ RSA Public Key: \t", configEnc.RSAKey[0:64]+"...")
+		fmt.Fprintln(w1, "→ Self-Remove: \t", configEnc.SelfDelete)
 		fmt.Fprintln(w1, "→ Worker Concurrency: \t", configEnc.Concurrency)
 		fmt.Fprintln(w1, "→ Log Level: \t", configEnc.Log.Level)
 		fmt.Fprintln(w1, "→ Log Path: \t", configEnc.Log.Path)
@@ -262,8 +262,8 @@ func main() {
 		color.Green("\n✓ Extracted Configuration:\n")
 
 		fmt.Fprintln(w1, "\n→ Ransomware Version: \t", mwVersion)
-		fmt.Fprintln(w1, "→ RSA Public Key: \t", configDec.RSA_Key[0:64]+"...")
-		fmt.Fprintln(w1, "→ Self-Remove: \t", configDec.Self_Delete)
+		fmt.Fprintln(w1, "→ RSA Public Key: \t", configDec.RSAKey[0:64]+"...")
+		fmt.Fprintln(w1, "→ Self-Remove: \t", configDec.SelfDelete)
 		fmt.Fprintln(w1, "→ Worker Concurrency: \t", configDec.Concurrency)
 		fmt.Fprintln(w1, "→ Log Level: \t", configDec.Log.Level)
 		fmt.Fprintln(w1, "→ Log Path: \t", configDec.Log.Path)

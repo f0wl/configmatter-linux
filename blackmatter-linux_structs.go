@@ -4,12 +4,12 @@ package main
 // different feature sets (cfg_*) can be individually enabled or disabled
 
 type cfg_disk struct {
-	Enable         string `json:"enable"`
-	Type           string `json:"type"`
-	Dark_size      string `json:"dark-size"`
-	White_size     string `json:"white-size"`
-	Min_size       string `json:"min-size"`
-	Extension_list string `json:"extension-list"` // Files with these extensions will be encrypted
+	Enable        string `json:"enable"`
+	Type          string `json:"type"`
+	DarkSize      string `json:"dark-size"`
+	WhiteSize     string `json:"white-size"`
+	MinSize       string `json:"min-size"`
+	ExtensionList string `json:"extension-list"` // Files with these extensions will be encrypted
 }
 
 type cfg_log struct {
@@ -42,8 +42,8 @@ type cfg_killprocess struct {
 }
 
 type BlackmatterConfigEnc struct {
-	RSA_Key     string          `json:"rsa"`                // RSA-4096 Public Key
-	Self_Delete string          `json:"remove-self"`        // remove the executable after encryption
+	RSAKey      string          `json:"rsa"`                // RSA-4096 Public Key
+	SelfDelete  string          `json:"remove-self"`        // remove the executable after encryption
 	Concurrency string          `json:"worker-concurrency"` // multi-threaded operation
 	Disk        cfg_disk        `json:"disk"`               // Encryption
 	Log         cfg_log         `json:"log"`                // Logging
@@ -54,8 +54,8 @@ type BlackmatterConfigEnc struct {
 }
 
 type BlackmatterConfigDec struct {
-	RSA_Key     string      `json:"rsa"`                // RSA-4096 Private Key
-	Self_Delete string      `json:"remove-self"`        // remove the executable after encryption
+	RSAKey      string      `json:"rsa"`                // RSA-4096 Private Key
+	SelfDelete  string      `json:"remove-self"`        // remove the executable after encryption
 	Concurrency string      `json:"worker-concurrency"` // multi-threaded operation
 	Disk        cfg_disk    `json:"disk"`               // Encryption
 	Log         cfg_log     `json:"log"`                // Logging
