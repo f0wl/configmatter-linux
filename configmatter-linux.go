@@ -147,8 +147,21 @@ func main() {
 	mwVersion := string(bytes.Trim(versionSection, "\x00"))
 
 	// dump out the contents of the .cfgETD section
-	configData, dumpErr := f.Section(".cfgETD").Data()
-	check(dumpErr)
+	isDecryptor := false
+
+	var configData []byte
+	if f.Section(".cfgETD") != nil {
+		configData, dumpErr = f.Section(".cfgETD").Data()
+		check(dumpErr)
+		color.Yellow("Couldn't find section .cfgETD, trying to dump .cfgDTD instead (Decryptor).")
+	} else if f.Section(".cfgDTD") != nil {
+		configData, dumpErr = f.Section(".cfgDTD").Data()
+		check(dumpErr)
+		isDecryptor = true
+	} else {
+		color.Red("Couldn't find section .cfgETD or .cfgDTD.")
+	}
+
 	cleanRaw := bytes.Trim(configData, "\x00")
 
 	// decode the base64 encoded data
@@ -212,31 +225,49 @@ func main() {
 	}
 
 	// initialize a variable to store the config in; the structures are defined in blackmatter-linux_structs.go
-	var config BlackmatterConfig
+	var configEnc BlackmatterConfigEnc
+	var configDec BlackmatterConfigDec
 
-	// unmarshal the decrypted config into the struct
-	jsonErr := json.Unmarshal(plaintext, &config)
-	check(jsonErr)
+	if !isDecryptor {
+		// unmarshal the decrypted config into the struct
+		jsonErr := json.Unmarshal(plaintext, &configEnc)
+		check(jsonErr)
 
-	// print extracted configuration features
-	color.Green("\n✓ Extracted Configuration:\n")
+		// print extracted configuration features
+		color.Green("\n✓ Extracted Configuration:\n")
 
-	fmt.Fprintln(w1, "\n→ Ransomware Version: \t", mwVersion)
-	fmt.Fprintln(w1, "→ RSA Public Key: \t", config.RSA_Key[0:64]+"...")
-	fmt.Fprintln(w1, "→ Self-Remove: \t", config.Self_Delete)
-	fmt.Fprintln(w1, "→ Worker Concurrency: \t", config.Concurrency)
-	fmt.Fprintln(w1, "→ Log Level: \t", config.Log.Level)
-	fmt.Fprintln(w1, "→ Log Path: \t", config.Log.Path)
-	fmt.Fprintln(w1, "→ Ransomnote Filename: \t", config.Message.Name)
-	fmt.Fprintln(w1, "→ Bot ID: \t", config.Landing.ID)
-	fmt.Fprintln(w1, "→ AES Key: \t", config.Landing.Key)
-	fmt.Fprintln(w1, "→ C&C URLs: \t", config.Landing.URLs)
-	fmt.Fprintln(w1, "→ Ignore VMs: \t", config.KillVM.Ignore)
-	fmt.Fprintln(w1, "→ Ignore Processes: \t", config.KillProcess.List)
-	w1.Flush()
+		fmt.Fprintln(w1, "\n→ Ransomware Version: \t", mwVersion)
+		fmt.Fprintln(w1, "→ RSA Public Key: \t", configEnc.RSA_Key[0:64]+"...")
+		fmt.Fprintln(w1, "→ Self-Remove: \t", configEnc.Self_Delete)
+		fmt.Fprintln(w1, "→ Worker Concurrency: \t", configEnc.Concurrency)
+		fmt.Fprintln(w1, "→ Log Level: \t", configEnc.Log.Level)
+		fmt.Fprintln(w1, "→ Log Path: \t", configEnc.Log.Path)
+		fmt.Fprintln(w1, "→ Ransomnote Filename: \t", configEnc.Message.Name)
+		fmt.Fprintln(w1, "→ Bot ID: \t", configEnc.Landing.ID)
+		fmt.Fprintln(w1, "→ AES Key: \t", configEnc.Landing.Key)
+		fmt.Fprintln(w1, "→ C&C URLs: \t", configEnc.Landing.URLs)
+		fmt.Fprintln(w1, "→ Ignore VMs: \t", configEnc.KillVM.Ignore)
+		fmt.Fprintln(w1, "→ Ignore Processes: \t", configEnc.KillProcess.List)
+		w1.Flush()
 
-	// print the ransomnote
-	color.Green("\n✓ Ransomnote:\n")
+		// print the ransomnote
+		color.Green("\n✓ Ransomnote:\n")
+		fmt.Printf("%v\n", configEnc.Message.Content)
+	} else {
+		// unmarshal the decrypted config into the struct
+		jsonErr := json.Unmarshal(plaintext, &configDec)
+		check(jsonErr)
 
-	fmt.Printf("%v\n", config.Message.Content)
+		// print extracted configuration features
+		color.Green("\n✓ Extracted Configuration:\n")
+
+		fmt.Fprintln(w1, "\n→ Ransomware Version: \t", mwVersion)
+		fmt.Fprintln(w1, "→ RSA Public Key: \t", configDec.RSA_Key[0:64]+"...")
+		fmt.Fprintln(w1, "→ Self-Remove: \t", configDec.Self_Delete)
+		fmt.Fprintln(w1, "→ Worker Concurrency: \t", configDec.Concurrency)
+		fmt.Fprintln(w1, "→ Log Level: \t", configDec.Log.Level)
+		fmt.Fprintln(w1, "→ Log Path: \t", configDec.Log.Path)
+		fmt.Fprintln(w1, "→ Ransomnote Filename: \t", configDec.Message.Name)
+		w1.Flush()
+	}
 }
