@@ -153,8 +153,8 @@ func main() {
 	if f.Section(".cfgETD") != nil {
 		configData, dumpErr = f.Section(".cfgETD").Data()
 		check(dumpErr)
-		color.Yellow("Couldn't find section .cfgETD, trying to dump .cfgDTD instead (Decryptor).")
 	} else if f.Section(".cfgDTD") != nil {
+		color.Yellow("Couldn't find section .cfgETD, trying to dump .cfgDTD instead (Decryptor).")
 		configData, dumpErr = f.Section(".cfgDTD").Data()
 		check(dumpErr)
 		isDecryptor = true
