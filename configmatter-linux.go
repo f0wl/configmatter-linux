@@ -258,7 +258,7 @@ func main() {
 		fmt.Fprintln(w1, "→ AES Key: \t", configEnc.Landing.Key)
 		fmt.Fprintln(w1, "→ C&C URLs: \t", configEnc.Landing.URLs)
 		fmt.Fprintln(w1, "→ Ignore VMs: \t", configEnc.KillVM.Ignore)
-		fmt.Fprintln(w1, "→ Ignore Processes: \t", configEnc.KillProcess.List)
+		fmt.Fprintln(w1, "→ Kill Processes: \t", configEnc.KillProcess.List)
 		w1.Flush()
 
 		// print the ransomnote
