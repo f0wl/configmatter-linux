@@ -17,6 +17,57 @@ The configuration of BlackMatter is stored as a Base64 string in the ```.cfgETD`
 
 ![Running the script](img/config-layers.png)
 
+### Encryptor
+
+The configuration of the encryptor contains the following data:
+
+|         Value         |             Description             |
+|-----------------------|-------------------------------------|
+| rsa                   | RSA public key                      |
+| remove-self           | Switch for self-deletion            |
+| worker-concurrency    | Threading                           |
+| disk.enable           | Switch for file encryption          |
+| disk.type             | Storage type to encrypt             |
+| disk.dark-size        | Number of bytes to encrypt          |
+| disk.white-size       | Number of bytes to skip             |
+| disk.min-size         | Minimum amount of data to encrypt   |
+| disk.extension-list   | File extensions                     |
+| log.enable            | Switch for logging                  |
+| log.level             | Verbosity level of the log          |
+| log.path              | Filepath of the log file            |
+| message.enable        | Swtich for the ransomnote           |
+| message.file-name     | Filename of the ransomnote          |
+| message.file-content  | Contents of the ransomnote          |
+| landing.enable        | Switch for C2 communication         |
+| landing.bot-id        | Campaign ID                         |
+| landing.key           | AES Key for C2 communication        |
+| landing.urls          | C2 URLs                             |
+| kill-vm.enable        | Switch for VM shutdown              |
+| kill-vm.ignore-list   | Exceptions from VM shutdown         |
+| kill-process.enable   | Switch for process termination      |
+| kill-process.list     | List of processes to terminate      |
+
+### Decryptor
+
+The configuration of the decryptor contains the following data:
+
+|         Value         |             Description             |
+|-----------------------|-------------------------------------|
+| rsa                   | RSA private key                     |
+| remove-self           | Switch for self-deletion            |
+| worker-concurrency    | Threading                           |
+| disk.enable           | Switch for file decryption          |
+| disk.type             | Storage type to decrypt             |
+| disk.dark-size        | Number of bytes to decrypt          |
+| disk.white-size       | Number of bytes to skip             |
+| disk.min-size         | Minimum amount of data to decrypt   |
+| disk.extension-list   | File extensions                     |
+| log.enable            | Switch for logging                  |
+| log.level             | Verbosity level of the log          |
+| log.path              | Filepath of the log file            |
+| message.enable        | Swtich for the ransomnote           |
+| message.file-name     | Filename of the ransomnote          |
+
 ## Testing
 
 This configuration extractor has been tested successfully with the following samples:
